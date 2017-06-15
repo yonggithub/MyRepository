@@ -1,0 +1,134 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+		 					 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.itcast</groupId>
+	<artifactId>ssh-parent</artifactId>
+	<version>1.0.0-RELEASE</version>
+	<packaging>pom</packaging>
+	
+	<!-- 配置全局的属性(定义jar包的版本号) -->
+	<properties>
+		<junit.version>4.11</junit.version>
+		<jsp.api.version>7.0.65</jsp.api.version>
+		<jstl.version>1.2</jstl.version>
+		<spring.version>4.3.3.RELEASE</spring.version>
+		<hibernate.version>5.0.11.Final</hibernate.version>
+		<struts2.version>2.3.31</struts2.version>
+	</properties>
+	
+	<!-- 配置jar包依赖 -->
+	<dependencies>
+	
+		<!-- junit4 -->
+		<dependency>
+			<!-- 公司的域名反写 -->
+			<groupId>junit</groupId>
+			<!-- 项目唯一的标识符(jar包名) -->
+			<artifactId>junit</artifactId>
+			<!-- 版本号 -->
+			<version>${junit.version}</version>
+			<!-- 保留到测试 -->
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- servlet-api、jsp-api、el-api -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jsp-api</artifactId>
+			<version>${jsp.api.version}</version>
+			<!-- 这三个jar包由web容器提供 -->
+			<scope>provided</scope>
+		</dependency>
+		<!-- jstl -->
+		<dependency>
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>${jstl.version}</version>
+		</dependency>
+		
+		<!-- Spring4框架  -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		
+		<!-- Hibernate5框架 -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-c3p0</artifactId>
+		    <version>${hibernate.version}</version>
+		</dependency>
+		
+		<!-- Struts2框架jar包的依赖 -->
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-core</artifactId>
+		    <version>${struts2.version}</version>
+		    <!-- 排除依赖 -->
+		    <exclusions>
+		    	<exclusion>
+		    		<groupId>javassist</groupId>
+		    		<artifactId>javassist</artifactId>
+		    	</exclusion>
+		    </exclusions>
+		</dependency>
+		<!-- Struts2与Spring4整合的插件 -->
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-spring-plugin</artifactId>
+		    <version>${struts2.version}</version>
+		</dependency>
+		
+		 <dependency>
+	        <groupId>org.aspectj</groupId>
+	        <artifactId>aspectjweaver</artifactId>
+	        <version>1.8.8</version>
+   		 </dependency>
+	</dependencies>
+	
+	<!-- 构建部分 -->
+	<build>
+		<plugins>
+			<!-- 编译插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<!-- 源代码用 1.7 -->
+					<source>1.7</source>
+					<!-- 打包时编译用1.7 -->
+					<target>1.7</target>
+					<!-- 源代码编码 -->
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<!-- 部署元素 -->
+	<distributionManagement>
+		<!-- 部署到发行版仓库 -->
+		<repository>
+			<!-- 仓库id -->
+			<id>itcast</id>
+			<!-- 仓库名称 -->
+			<name>itcast</name>
+			<!-- 仓库访问URL -->
+			<url>http://localhost:8081/nexus/content/repositories/itcast/</url>
+		</repository>
+	</distributionManagement>
+</project>
