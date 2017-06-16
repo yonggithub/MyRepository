@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.basic{FixedAreaDao.java[FixedAreaDao" modifiers="513" timestamp="1494515273198"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.basic.impl{FixedAreaDaoImpl.java[FixedAreaDaoImpl" modifiers="1" timestamp="1495152577457"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.basic{RegionDao.java[RegionDao" modifiers="513" timestamp="1494515236887"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.basic{StaffDao.java[StaffDao" modifiers="513" timestamp="1494516999445"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.basic{SubAreaDao.java[SubAreaDao" modifiers="513" timestamp="1494515257475"/>
+<typeInfo handle="=bos-service/src\/main\/java&lt;cn.itcast.bos.service.basic{BasicService.java[BasicService" modifiers="513" timestamp="1494516665092"/>
+<typeInfo handle="=bos-service/src\/main\/java&lt;cn.itcast.bos.service.handlecenter{HandleCenterService.java[HandleCenterService" modifiers="513" timestamp="1494516753163"/>
+<typeInfo handle="=bos-service/src\/main\/java&lt;cn.itcast.bos.service.identity{IdentityService.java[IdentityService" modifiers="513" timestamp="1495671845852"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.handlecenter{BusNoticeBillDao.java[BusNoticeBillDao" modifiers="513" timestamp="1494516028255"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.handlecenter{SendGoodsBillDao.java[SendGoodsBillDao" modifiers="513" timestamp="1494515937823"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.handlecenter{WorkBillDao.java[WorkBillDao" modifiers="513" timestamp="1494516053905"/>
+<typeInfo handle="=bos-core/src\/main\/java&lt;cn.itcast.core.hibernate{HibernateDao.java[HibernateDao" modifiers="513" timestamp="1494509121324"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.identity{DeptDao.java[DeptDao" modifiers="513" timestamp="1494518060451"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.identity{JobDao.java[JobDao" modifiers="513" timestamp="1494518078908"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.identity{ResourceDao.java[ResourceDao" modifiers="513" timestamp="1494518027348"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.identity{RoleDao.java[RoleDao" modifiers="513" timestamp="1495411247344"/>
+<typeInfo handle="=bos-core/src\/main\/java&lt;cn.itcast.core.hibernate.impl{HibernateDaoImpl.java[HibernateDaoImpl" modifiers="1" timestamp="1494509140450"/>
+<typeInfo handle="=bos-dao/src\/main\/java&lt;cn.itcast.bos.dao.identity{UserDao.java[UserDao" modifiers="513" timestamp="1494517984233"/>
+<typeInfo handle="=bos-core/F:\/apache-maven-3.3.9\/repo\/org\/apache\/struts\/xwork\/xwork-core\/2.3.31\/xwork-core-2.3.31.jar&lt;com.opensymphony.xwork2(ActionSupport.class[ActionSupport" modifiers="33" timestamp="1475650597000"/>
+</typeInfoHistroy>

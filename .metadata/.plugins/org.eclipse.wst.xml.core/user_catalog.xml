@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://struts.apache.org/dtds/struts-2.3.dtd" uri="file:///F:/离线约束提示/struts-2.3.dtd"/>
+</catalog>

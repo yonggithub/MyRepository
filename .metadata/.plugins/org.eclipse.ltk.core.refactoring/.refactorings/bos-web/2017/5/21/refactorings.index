@@ -1,0 +1,5 @@
+1495379674414	Rename package 'cn.itcast.core.action'
+1495671375072	Extract local variable 'user'
+1495671531183	Extract local variable 'cookie'
+1495671569762	Extract local variable 'userId'
+1495671854439	Extract local variable 'user2'

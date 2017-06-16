@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0           
+		 					 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 对象模型的版本号 -->
+	<modelVersion>4.0.0</modelVersion>
+	<!-- 指定父级项目 -->
+	<parent>
+		<groupId>cn.itcast</groupId>
+		<artifactId>ssh-parent</artifactId>
+		<version>1.0.0-RELEASE</version>
+	</parent>
+	<!-- 指定项目的唯一标识符 -->
+	<artifactId>bos-parent</artifactId>
+	<!-- 版本号 SNAPSHOT快照版    RELEASE发行版 -->
+	<version>0.0.1-SNAPSHOT</version>
+	<!-- 打包类型 -->
+	<packaging>pom</packaging>
+	
+	<!-- 配置全局的属性(定义jar包的版本号) -->
+	<properties>
+		<oracle.version>11.2.0.4</oracle.version>
+	</properties>
+	
+	<!-- 配置jar包依赖 -->
+	<dependencies>
+	
+		<!-- Oracle数据库驱动 -->
+		<dependency>
+		    <groupId>cn.easyproject</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>${oracle.version}</version>
+		</dependency>
+		 <!-- Struts2与json整合的插件 -->
+	  <dependency>
+	      <groupId>org.apache.struts</groupId>
+	      <artifactId>struts2-json-plugin</artifactId>
+	      <version>${struts2.version}</version>
+	  </dependency>
+	</dependencies>
+	
+	
+	<!-- 聚合多个模块  -->
+	<modules>
+		<!-- 实体 -->
+		<module>bos-entity</module>
+		<!-- 数据访问 -->
+		<module>bos-dao</module>
+		<!-- 业务处理 -->
+		<module>bos-service</module>
+		<!-- web层 -->
+		<module>bos-web</module>
+		<!-- 核心 -->
+		<module>bos-core</module>
+	</modules>
+	
+	<build>
+		<plugins>
+			<!-- tomcat7插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- 端口号 -->
+					<port>8080</port>
+					<!-- 项目请求路径 -->
+					<path>/bos</path>
+					<!-- 支持热部署 -->
+					<contextReloadable>true</contextReloadable>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

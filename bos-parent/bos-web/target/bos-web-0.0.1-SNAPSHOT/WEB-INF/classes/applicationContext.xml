@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        				   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        				   http://www.springframework.org/schema/context
+        				   http://www.springframework.org/schema/context/spring-context.xsd
+        				   http://www.springframework.org/schema/tx
+        				   http://www.springframework.org/schema/tx/spring-tx.xsd
+        				   http://www.springframework.org/schema/aop
+        				   http://www.springframework.org/schema/aop/spring-aop.xsd">
+        				   
+      <!-- 加载属性文件产生属性占位符 -->
+      <context:property-placeholder location="classpath:jdbc.properties"/>	
+      			   
+      <!-- 配置数据源(dataSource) -->
+      <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"
+      		p:driverClass="${c3p0.driverClass}"
+      		p:jdbcUrl="${c3p0.jdbcUrl}"
+      		p:user="${c3p0.user}"
+      		p:password="${c3p0.password}"
+      		p:minPoolSize="${c3p0.minPoolSize}"
+      		p:maxPoolSize="${c3p0.maxPoolSize}"
+      		p:initialPoolSize="${c3p0.initialPoolSize}"/>
+
+	  		
+	<!-- 持久化类采用包扫描 -->
+	  <!-- 配置sessionfactory -->
+	  <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+		  	p:dataSource-ref="dataSource"
+		  	p:configLocation="classpath:hibernate.cfg.xml">
+			  	<property name="packagesToScan">
+			  		<array>
+			  			<value>cn.itcast.bos.entity</value>
+			  		</array>
+			  	</property>
+	  </bean>
+
+
+	  <!-- 配置事务管理器(TransactionManager) -->
+	   <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+	  		p:sessionFactory-ref="sessionFactory"/>
+		
+	  <!-- 声明式事务配置 -->
+	  <tx:advice id="txAdvice" transaction-manager="transactionManager">
+	  		<!-- 配置事务属性 -->
+	  		<tx:attributes>
+	  			<!-- set方法开头只能做查询 connection.setAutoCommit(true) 没有开启事务 -->
+	  			<tx:method name="set*" read-only="true"/>
+	  			<!-- get方法开头只能做查询 connection.setAutoCommit(true) 没有开启事务 -->
+	  			<tx:method name="get*" read-only="true"/>
+	  			<!-- get方法开头只能做查询 connection.setAutoCommit(true) 没有开启事务 -->
+	  			<tx:method name="save*" read-only="false" rollback-for="java.lang.Exception"/>
+	  			<!-- 剩余的方法开头 CRUD都可以 connection.setAutoCommit(false) 开启事务 -->
+	  			<tx:method name="*" read-only="false"/>
+	  		</tx:attributes>
+	  </tx:advice>
+
+	  <!-- AOP切面配置 -->
+	  <aop:config>
+	  
+	  		<!-- 配置切入点表达式 -->
+	  		<aop:pointcut expression="execution(* cn.itcast.bos.service.*.*.*.*(*))" id="pointcut"/>
+	  		
+	  		<!-- 事务切面配置  把声明式事务  运用到    指定的切入点-->
+	  		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+	  </aop:config>
+	  
+	  <tx:annotation-driven transaction-manager="transactionManager"/>
+	  <context:component-scan base-package="cn.itcast.bos.dao,cn.itcast.bos.service"/>
+	  
+	  
+</beans>
